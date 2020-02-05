@@ -29,18 +29,18 @@ The first thing you need to do is get an authorization token at Dropbox. Unlike 
 
 ### Supports
 
-* doesFileExist
-* deleteFile
+* doesDropboxFileExist
+* deleteDropboxFile
 
 And assertions
 
-* seeFile
+* seeDropboxFile
 
 ### Usage
 
 ```php
 $I = new AcceptanceTester( $scenario );
 
-$I->seeFile( 'path/to/file.jpg' );
+$I->seeDropboxFile( 'path/to/file.jpg' );
 ```
 

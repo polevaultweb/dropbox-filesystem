@@ -38,7 +38,7 @@ class DropboxFilesystem extends Filesystem {
 	 *
 	 * @return bool
 	 */
-	public function doesFileExist( $file ) {
+	public function doesDropboxFileExist( $file ) {
 		try {
 			return (bool) $this->getClient()->getMetadata( $file );
 		} catch ( \Exception $e ) {
@@ -53,7 +53,7 @@ class DropboxFilesystem extends Filesystem {
 	 *
 	 * @param string $key
 	 */
-	public function seeFile( $key ) {
+	public function seeDropboxFile( $key ) {
 		$this->assertTrue( $this->doesFileExist( $key ) );
 	}
 
@@ -64,7 +64,7 @@ class DropboxFilesystem extends Filesystem {
 	 *
 	 * @return mixed
 	 */
-	public function deleteFile( $file ) {
+	public function deleteDropboxFile( $file ) {
 		try {
 			return $this->getClient()->delete( $file );
 		} catch ( \Exception $e ) {
