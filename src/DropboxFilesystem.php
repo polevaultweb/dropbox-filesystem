@@ -16,6 +16,11 @@ class DropboxFilesystem extends Filesystem {
 	protected $requiredFields = array( 'authorizationToken' );
 
 	/**
+	 * @var string
+	 */
+	protected $authorizationToken;
+
+	/**
 	 * @var array
 	 */
 	protected static $client;
@@ -24,8 +29,10 @@ class DropboxFilesystem extends Filesystem {
 	 * @return Client
 	 */
 	protected function getClient() {
+		$authorizationToken = $this->authorizationToken ? $this->authorizationToken : $this->config['authorizationToken'];
+
 		if ( empty( self::$client ) ) {
-			self::$client = new Client( $this->config['authorizationToken'] );
+			self::$client = new Client( $authorizationToken );
 		}
 
 		return self::$client;
@@ -70,5 +77,12 @@ class DropboxFilesystem extends Filesystem {
 		} catch ( \Exception $e ) {
 			\PHPUnit_Framework_Assert::fail( $e->getMessage() );
 		}
+	}
+
+	/**
+	 * @param string $authorizationToken
+	 */
+	public function setDropboxAuthorizationToken( $authorizationToken ) {
+		$this->authorizationToken = $authorizationToken;
 	}
 }
