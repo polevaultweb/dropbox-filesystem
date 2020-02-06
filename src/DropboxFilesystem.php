@@ -61,7 +61,7 @@ class DropboxFilesystem extends Filesystem {
 	 * @param string $key
 	 */
 	public function seeDropboxFile( $key ) {
-		$this->assertTrue( $this->doesFileExist( $key ) );
+		$this->assertTrue( $this->doesDropboxFileExist( $key ) );
 	}
 
 	/**
