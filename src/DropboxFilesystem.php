@@ -11,11 +11,6 @@ use Spatie\Dropbox\Client;
 class DropboxFilesystem extends Filesystem {
 
 	/**
-	 * @var array
-	 */
-	protected $requiredFields = array( 'authorizationToken' );
-
-	/**
 	 * @var string
 	 */
 	protected $authorizationToken;
